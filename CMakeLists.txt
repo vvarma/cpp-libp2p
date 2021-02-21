@@ -31,6 +31,7 @@ option(MSAN "Enable memory sanitizer" OFF)
 option(TSAN "Enable thread sanitizer" OFF)
 option(UBSAN "Enable UB sanitizer" OFF)
 option(EXPOSE_MOCKS "Make mocks header files visible for child projects" OFF)
+option(ENABLE_TRACING "Enable tracing for p2p libraries" OFF)
 
 include(cmake/print.cmake)
 print("C flags: ${CMAKE_C_FLAGS}")
@@ -76,6 +77,10 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
   # using Visual Studio C++
   # TODO(warchant): add flags https://github.com/lefticus/cppbestpractices/blob/master/02-Use_the_Tools_Available.md#msvc
 endif ()
+
+if (ENABLE_TRACING)
+  add_flag(-DTRACE_ENABLED=1)
+endif()
 
 if (COVERAGE)
   include(cmake/coverage.cmake)
