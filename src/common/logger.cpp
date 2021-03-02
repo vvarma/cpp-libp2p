@@ -23,11 +23,11 @@ namespace {
                                                  bool debug_mode = true) {
         std::cout << "creating a logger for " << tag << std::endl;
         auto logger = spdlog::default_logger()->clone(tag);
-        if (debug_mode) {
-            setDebugPattern(*logger);
-        } else {
-            setGlobalPattern(*logger);
-        }
+//        if (debug_mode) {
+//            setDebugPattern(*logger);
+//        } else {
+//            setGlobalPattern(*logger);
+//        }
         return logger;
     }
 }  // namespace
