@@ -8,6 +8,7 @@
 #include <boost/scoped_ptr.hpp>
 #include <spdlog/fmt/ostr.h>
 #include <spdlog/sinks/stdout_color_sinks.h>
+#include <iostream>
 
 namespace {
     void setGlobalPattern(spdlog::logger &logger) {
@@ -20,6 +21,7 @@ namespace {
 
     std::shared_ptr<spdlog::logger> createLogger(const std::string &tag,
                                                  bool debug_mode = true) {
+        std::cout << "creating a logger for " << tag << std::endl;
         auto logger = spdlog::default_logger()->clone(tag);
         if (debug_mode) {
             setDebugPattern(*logger);
