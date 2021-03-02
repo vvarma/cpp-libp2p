@@ -10,14 +10,16 @@
 #include <spdlog/spdlog.h>
 
 namespace libp2p::common {
-  using Logger = std::shared_ptr<spdlog::logger>;
+    using Logger = std::shared_ptr<spdlog::logger>;
 
-  /**
-   * Provide logger object
-   * @param tag - tagging name for identifying logger
-   * @return logger object
-   */
-  Logger createLogger(const std::string &tag);
+    /**
+     * Provide logger object
+     * @param tag - tagging name for identifying logger
+     * @return logger object
+     */
+    Logger createLogger(const std::string &tag);
+
+    void registerDefaultLogger(std::vector<spdlog::sink_ptr> sinks);
 }  // namespace libp2p::common
 
 #endif  // LIBP2P_LOGGER_HPP
