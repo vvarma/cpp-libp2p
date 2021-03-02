@@ -11,7 +11,7 @@ namespace libp2p::network {
 
   namespace {
     spdlog::logger &log() {
-      static common::Logger logger = common::createLogger("listener_mgr");
+      common::Logger logger = common::createLogger("listener_mgr");
       return *logger;
     }
   }  // namespace

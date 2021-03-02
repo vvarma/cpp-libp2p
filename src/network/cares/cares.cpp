@@ -62,7 +62,7 @@ namespace libp2p::network::c_ares {
   // https://bugs.llvm.org/show_bug.cgi?id=48040
   std::atomic_bool Ares::initialized_{false};                          // NOLINT
   std::list<std::shared_ptr<Ares::RequestContext>> Ares::requests_{};  // NOLINT
-  common::Logger Ares::log_ = common::createLogger("Ares");            // NOLINT
+  common::Logger Ares::log_ = nullptr;            // NOLINT
 
   Ares::Ares() {
     bool expected{false};
@@ -78,6 +78,7 @@ namespace libp2p::network::c_ares {
       [[maybe_unused]] bool switched_back_on_error{
           initialized_.compare_exchange_strong(expected, false)};
       assert(switched_back_on_error);
+      Ares::log_ = common::createLogger("Ares");
     }
   }
 
