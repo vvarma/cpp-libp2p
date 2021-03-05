@@ -21,7 +21,6 @@ namespace {
 
     std::shared_ptr<spdlog::logger> createLogger(const std::string &tag,
                                                  bool debug_mode = true) {
-        std::cout << "creating a logger for " << tag << std::endl;
         auto logger = spdlog::default_logger()->clone(tag);
 //        if (debug_mode) {
 //            setDebugPattern(*logger);
@@ -44,6 +43,7 @@ namespace libp2p::common {
     }
 
     void registerDefaultLogger(std::vector<spdlog::sink_ptr> sinks) {
+        spdlog::set_level(spdlog::level::trace);
         if (sinks.empty()) {
             auto logger = spdlog::stderr_color_mt("libp2p");
             spdlog::set_default_logger(logger);
