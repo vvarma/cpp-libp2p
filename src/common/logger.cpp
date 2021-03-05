@@ -22,6 +22,7 @@ namespace {
     std::shared_ptr<spdlog::logger> createLogger(const std::string &tag,
                                                  bool debug_mode = true) {
         auto logger = spdlog::default_logger()->clone(tag);
+        logger->set_level(spdlog::level::trace);
 //        if (debug_mode) {
 //            setDebugPattern(*logger);
 //        } else {
