@@ -28,6 +28,8 @@ namespace {
 //        } else {
 //            setGlobalPattern(*logger);
 //        }
+        spdlog::info("created logger {}", tag);
+        logger->info("created");
         return logger;
     }
 }  // namespace
@@ -52,5 +54,7 @@ namespace libp2p::common {
             auto logger = std::make_shared<spdlog::logger>("libp2p", sinks.begin(), sinks.end());
             spdlog::set_default_logger(logger);
         }
+        spdlog::info("set default logger");
+        std::cout << "done" << std::endl;
     }
 }  // namespace libp2p::common
