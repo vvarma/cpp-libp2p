@@ -28,6 +28,7 @@ namespace {
 //        } else {
 //            setGlobalPattern(*logger);
 //        }
+        spdlog::register_logger(logger);
         spdlog::info("created logger {}", tag);
         logger->info("created");
         return logger;
