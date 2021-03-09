@@ -19,7 +19,8 @@ namespace libp2p::common {
      */
     Logger createLogger(const std::string &tag);
 
-    void registerDefaultLogger(std::vector<spdlog::sink_ptr> sinks);
+    void registerDefaultLogger(std::vector<spdlog::sink_ptr> sinks,
+                               spdlog::level::level_enum defaultLevel = spdlog::level::info);
 }  // namespace libp2p::common
 
 #endif  // LIBP2P_LOGGER_HPP
