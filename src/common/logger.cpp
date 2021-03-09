@@ -40,12 +40,13 @@ namespace libp2p::common {
         if (logger == nullptr) {  // NOLINT
             logger = ::createLogger(tag);
         }
+        logger->set_level(spdlog::level::trace);
         return logger;
     }
 
     void registerDefaultLogger(std::vector<spdlog::sink_ptr> sinks,
                                spdlog::level::level_enum defaultLevel) {
-        spdlog::set_level(defaultLevel);
+//        spdlog::set_level(defaultLevel);
         if (sinks.empty()) {
             auto logger = spdlog::stderr_color_mt("libp2p");
             spdlog::set_default_logger(logger);
