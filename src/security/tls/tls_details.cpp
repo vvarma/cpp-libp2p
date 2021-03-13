@@ -40,7 +40,7 @@ namespace libp2p::security::tls_details {
   }  // namespace
 
   spdlog::logger &log() {
-    static common::Logger logger = common::createLogger("tls");
+    common::Logger logger = common::createLogger("tls");
     return *logger;
   }
 
