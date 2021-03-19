@@ -40,7 +40,7 @@ namespace libp2p::common {
         if (logger == nullptr) {  // NOLINT
             logger = ::createLogger(tag);
         }
-        logger->set_level(spdlog::level::trace);
+        logger->set_level(spdlog::default_logger()->level());
         return logger;
     }
 
